@@ -23,9 +23,19 @@ console.log("Завдання: 1 ==============================");
 // Виводимо в консоль Об'єкт: Book
 
 // Виводимо в консоль прототип Об'єкту: Book
+let Book = {
+	title: "Загальна Книга",
+	author: "Анонім",
+	pages: 0,
+	read: function () {
+		console.log(`Ви читаєте "${this.title}" від ${this.author}`);
+	},
+};
 
+console.log(Book);
+console.log(Book.hasOwnProperty("title"));
 // Викликаємо функцію read об'єкту Book
-
+Book.read();
 // 2. Наслідування від базового об'єкту Book
 
 /*
@@ -38,14 +48,16 @@ console.log("Завдання: 1 ==============================");
  */
 
 // Створюємо об'єкт Novel, наслідуємо властивості і функції від об'єкта Book
-
+let Novel = Object.create(Book);
 // Додаємо властивість genre
+Novel = Novel.genre;
 
 console.log("Завдання: 2 ==============================");
 
 // Виводимо в консоль Об'єкт: Novel
-
+console.log(Novel);
 // Виводимо в консоль прототип Об'єкту: Novel
+console.log(Object.getPrototypeOf(Book));
 
 // 3. Створення нового об'єкту та зміна його прототипу
 
